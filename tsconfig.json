@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "lib": ["ESNext"],
+    "moduleResolution": "Node",
+    "baseUrl": ".",
+    "types": ["mdast-util-mdx"],
+    "declaration": true,
+    "outDir": "dist",
+    "allowSyntheticDefaultImports": true,
+    "skipLibCheck": true
+  },
+  "include": ["src"],
+  "exclude": ["**/*.test.ts"]
+}
+

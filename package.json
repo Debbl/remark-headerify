@@ -1,13 +1,24 @@
 {
   "name": "remark-headerify",
+  "type": "module",
   "version": "0.0.2",
   "description": "",
   "author": "Debbl <me@aiwan.run> (https://aiwan.run)",
   "license": "MIT",
-  "keywords": [],
+  "keywords": ["remark", "mdx"],
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
   "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "build": "tsc",
+    "build": "tsup src/index.ts --format esm,cjs --clean --dts",
     "test": "vitest run",
     "release": "npm run build && bumpp && npm publish"
   },
@@ -23,6 +34,7 @@
     "mdast-util-mdx": "^2.0.0",
     "remark": "^15.0.1",
     "remark-frontmatter": "^5.0.0",
+    "tsup": "^7.2.0",
     "typescript": "^5.0.0",
     "vfile": "^6.0.1",
     "vitest": "^0.34.6"

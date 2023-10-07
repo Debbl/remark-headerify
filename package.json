@@ -1,11 +1,14 @@
 {
   "name": "remark-headerify",
   "type": "module",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "",
   "author": "Debbl <me@aiwan.run> (https://aiwan.run)",
   "license": "MIT",
-  "keywords": ["remark", "mdx"],
+  "keywords": [
+    "remark",
+    "mdx"
+  ],
   "exports": {
     ".": {
       "import": "./dist/index.js",

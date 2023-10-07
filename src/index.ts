@@ -14,7 +14,7 @@ const headerify = () => {
       value,
     }));
 
-    tree.children.splice(nodeIndex, 1, {
+    tree.children.splice(nodeIndex, 0, {
       type: "mdxJsxFlowElement",
       name: "Header",
       attributes,

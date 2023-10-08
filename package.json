@@ -8,7 +8,7 @@
   "homepage": "https://github.com/Debbl/remark-headerify",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Debbl/remark-headerify.git"
+    "url": "git+https://github.com/Debbl/remark-headerify.git"
   },
   "keywords": [
     "remark",

@@ -5,9 +5,15 @@
   "description": "",
   "author": "Debbl <me@aiwan.run> (https://aiwan.run)",
   "license": "MIT",
+  "homepage": "https://github.com/Debbl/remark-headerify",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Debbl/remark-headerify.git"
+  },
   "keywords": [
     "remark",
-    "mdx"
+    "mdx",
+    "nextjs"
   ],
   "exports": {
     ".": {

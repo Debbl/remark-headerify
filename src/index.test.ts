@@ -16,6 +16,13 @@ const input = () =>
   `---
   title: Hello World
   description: This is a test
+  key:
+    - string1
+    - string2      
+    - string3
+    - string4
+    - string5
+    - string6
 ---
 `;
 

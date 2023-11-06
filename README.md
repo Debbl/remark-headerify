@@ -10,7 +10,7 @@ pnpm i remark-headerify -D
 
 - only use for nextjs with mdx
 
-- parse frontmatter config for Header component
+- parse frontmatter config for Header component and Main component
 
 > info.md
 
@@ -18,6 +18,20 @@ pnpm i remark-headerify -D
 ---
     title: Info
 ---
+
+# Info
+```
+
+## parse
+```md
+---
+    title: Info
+---
+<Header title="Info">
+</Header>
+<Main>
+# Info
+</Main>
 ```
 
 > mdx-components.tsx
@@ -33,6 +47,10 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
 
       return <Header title={title} />;
     },
+    Main: ({ children }: { children: React.ReactNode }) => {
+      return <main className="markdown-body">{children}</main>;
+    },
+
     ...components,
   };
 }

@@ -1,25 +1,37 @@
 import { type Literal, type Root } from "mdast";
-import type { MdxJsxAttribute } from "mdast-util-mdx";
+import type { MdxJsxAttribute, MdxJsxFlowElement } from "mdast-util-mdx";
 import YAML from "yaml";
 
 const headerify = () => {
   return function transformer(tree: Root) {
-    const nodeIndex = tree.children.findIndex((child) => child.type === "yaml");
-    const node = tree.children[nodeIndex] as Literal;
+    const node = tree.children[0] as Literal;
+    if (node.type !== "yaml") return;
+
     const metadata = YAML.parse(node.value ?? "") as Record<string, string>;
 
-    const attributes: MdxJsxAttribute[] = Object.entries(metadata).map(([key, value]) => ({
-      type: "mdxJsxAttribute",
-      name: key,
-      value,
-    }));
+    const attributes: MdxJsxAttribute[] = Object.entries(metadata).map(
+      ([key, value]) => ({
+        type: "mdxJsxAttribute",
+        name: key,
+        value,
+      }),
+    );
 
-    tree.children.splice(nodeIndex, 0, {
-      type: "mdxJsxFlowElement",
-      name: "Header",
-      attributes,
-      children: [],
-    });
+    tree.children = [
+      tree.children[0],
+      {
+        type: "mdxJsxFlowElement",
+        name: "Header",
+        attributes,
+        children: [],
+      },
+      {
+        type: "mdxJsxFlowElement",
+        name: "Main",
+        attributes: [],
+        children: tree.children.slice(1) as MdxJsxFlowElement['children'], 
+      },
+    ];
   };
 };
 
